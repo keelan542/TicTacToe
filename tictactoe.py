@@ -1,6 +1,10 @@
+def new_board():
+	return [[None for i in range(3)] for j in range(3)]
+
 board = new_board()
 
 # Loop through turns until the game is over
+'''
 loop forever:
   # TODO: hmm I'm not sure how best to do this
   # right now. No problem, I'll come back later.
@@ -32,3 +36,4 @@ loop forever:
     break
 
   # Repeat until the game is over
+'''
