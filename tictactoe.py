@@ -9,9 +9,13 @@ def render(board):
   print('1|{} {} {}|\n2|{} {} {}|\n3|{} {} {}|'.format(*board))
   print(' +-----+')
 
+def get_move():
+  return input("What is your move ? ")
+
 board = new_board()
 
 render(board)
+move = get_move()
 
 # Loop through turns until the game is over
 '''
