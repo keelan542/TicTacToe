@@ -10,12 +10,19 @@ def render(board):
   print(' +-----+')
 
 def get_move():
-  return input("What is your move ? ")
+  return int(input("What is your move ? "))
+
+def make_move(board, move, player):
+  updated_board = board
+  updated_board[move-1] = player
+  return updated_board
 
 board = new_board()
 
 render(board)
 move = get_move()
+board = make_move(board, move, 'X')
+render(board)
 
 # Loop through turns until the game is over
 '''
