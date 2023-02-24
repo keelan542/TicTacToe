@@ -1,7 +1,17 @@
+# Returns an empty board containing only single spaces at start of game
 def new_board():
-	return [[None for i in range(3)] for j in range(3)]
+	return [' ' for i in range(9)]
+
+# Renders the board based on what moves have been made
+def render(board):
+  print('  1 2 3')
+  print(' +-----+')
+  print('1|{} {} {}|\n2|{} {} {}|\n3|{} {} {}|'.format(*board))
+  print(' +-----+')
 
 board = new_board()
+
+render(board)
 
 # Loop through turns until the game is over
 '''
