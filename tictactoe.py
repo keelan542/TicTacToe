@@ -4,10 +4,10 @@ def new_board():
 
 # Renders the board based on what moves have been made
 def render(board):
-  print('  1 2 3')
-  print(' +-----+')
-  print('1|{} {} {}|\n2|{} {} {}|\n3|{} {} {}|'.format(*board))
-  print(' +-----+')
+  print('   1   2   3')
+  print(' +-----------+')
+  print('1| {} | {} | {} |\n -------------\n2| {} | {} | {} |\n -------------\n3| {} | {} | {} |'.format(*board))
+  print(' +-----------+')
 
 # Gets move input from user
 def get_move():
