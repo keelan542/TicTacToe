@@ -28,7 +28,7 @@ def make_move(board, player):
 
 # Checks is move is valid and returns to make_move()
 def is_valid_move(board, move):
-  if board[move-1] == ' ':
+  if move in range(1, 10) and board[move-1] == ' ':
     return True
   else:
     return False
