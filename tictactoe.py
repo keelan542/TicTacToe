@@ -31,13 +31,19 @@ def is_valid_move(board, move):
     return False
 
 board = new_board()
+player = 'X'
 
 render(board)
 
-board = make_move(board, 'O')
-render(board)
-board = make_move(board, 'X')
-render(board)
+while ' ' in board:
+  make_move(board, player)
+  render(board)
+
+  match player:
+    case 'X':
+      player = 'O'
+    case 'O':
+      player = 'X'
 
 # Loop through turns until the game is over
 '''
