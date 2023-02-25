@@ -50,12 +50,18 @@ def is_winner(board):
 
   return None
 
+def is_board_full(board):
+  if ' ' not in board:
+    return True
+  else:
+    return False
+
 board = new_board()
 player = 'X'
 
 render(board)
 
-while ' ' in board:
+while True:
   make_move(board, player)
   render(board)
 
@@ -63,43 +69,12 @@ while ' ' in board:
     print("{} has won the game!".format(player))
     break
 
+  if is_board_full(board):
+    print("The game has ended in a draw!")
+    break
+
   match player:
     case 'X':
       player = 'O'
     case 'O':
       player = 'X'
-
-# Loop through turns until the game is over
-'''
-loop forever:
-  # TODO: hmm I'm not sure how best to do this
-  # right now. No problem, I'll come back later.
-  current_player = ???
-
-  # Print the current state of the board
-  render(board)
-
-  # Get the move that the current player is going
-  # to make.
-  move_co_ords = get_move()
-
-  # Make the move that we calculated above
-  make_move(board, move_co_ords, current_player)
-
-  # Work out if there's a winner
-  winner = get_winner(board)
-
-  # If there is a winner, crown them the champion
-  # and exit the loop.
-  if winner is not None:
-    print "WINNER IS %s!!" % winner
-    break
-
-  # If there is no winner and the board is full,
-  # exit the loop.
-  if is_board_full(board):
-    print "IT'S A DRAW!!"
-    break
-
-  # Repeat until the game is over
-'''
