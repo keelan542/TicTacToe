@@ -12,16 +12,31 @@ def render(board):
 def get_move():
   return int(input("What is your move ? "))
 
-def make_move(board, move, player):
+def make_move(board, player):
+  while True:
+    move = get_move()
+    if is_valid_move(board, move):
+      break
+    else:
+      print("Invalid move, try again!")
+
   updated_board = board
   updated_board[move-1] = player
   return updated_board
 
+def is_valid_move(board, move):
+  if board[move-1] == ' ':
+    return True
+  else:
+    return False
+
 board = new_board()
 
 render(board)
-move = get_move()
-board = make_move(board, move, 'X')
+
+board = make_move(board, 'O')
+render(board)
+board = make_move(board, 'X')
 render(board)
 
 # Loop through turns until the game is over
