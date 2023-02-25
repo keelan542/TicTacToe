@@ -9,9 +9,11 @@ def render(board):
   print('1|{} {} {}|\n2|{} {} {}|\n3|{} {} {}|'.format(*board))
   print(' +-----+')
 
+# Gets move input from user
 def get_move():
   return int(input("What is your move ? "))
 
+# Makes move after checking with is_valid_move() first
 def make_move(board, player):
   while True:
     move = get_move()
@@ -24,12 +26,14 @@ def make_move(board, player):
   updated_board[move-1] = player
   return updated_board
 
+# Checks is move is valid and returns to make_move()
 def is_valid_move(board, move):
   if board[move-1] == ' ':
     return True
   else:
     return False
 
+# Checks if there is winner, following the previous move
 def is_winner(board):
   for i in range(0, 7, 3):
     if board[i] == board[i+1] == board[i+2] == 'X':
@@ -50,15 +54,18 @@ def is_winner(board):
 
   return None
 
+# Checks if the board is full
 def is_board_full(board):
   if ' ' not in board:
     return True
   else:
     return False
 
+# Start of main program
 board = new_board()
 player = 'X'
 
+# Render empty board
 render(board)
 
 while True:
