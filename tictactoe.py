@@ -30,6 +30,26 @@ def is_valid_move(board, move):
   else:
     return False
 
+def is_winner(board):
+  for i in range(0, 7, 3):
+    if board[i] == board[i+1] == board[i+2] == 'X':
+      return 'X'
+    elif board[i] == board[i+1] == board[i+2] == 'O':
+      return 'O'
+
+  for i in range(3):
+    if board[i] == board[i+3] == board[i+6] == 'X':
+      return 'X'
+    elif board[i] == board[i+3] == board[i+6] == 'O':
+      return 'O'
+
+  if board[0] == board[4] == board[8] == 'X' or board[2] == board[4] == board[6] == 'X':
+    return 'X'
+  elif board[0] == board[4] == board[8] == 'O' or board[2] == board[4] == board[6] == 'Y':
+    return 'O'
+
+  return None
+
 board = new_board()
 player = 'X'
 
@@ -38,6 +58,10 @@ render(board)
 while ' ' in board:
   make_move(board, player)
   render(board)
+
+  if is_winner(board) != None:
+    print("{} has won the game!".format(player))
+    break
 
   match player:
     case 'X':
