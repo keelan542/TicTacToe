@@ -11,7 +11,10 @@ def render(board):
 
 # Gets move input from user
 def get_move():
-  return int(input("What is your move ? "))
+  try:
+    return int(input("What is your move ? "))
+  except ValueError:
+    print("", end='')
 
 # Makes move after checking with is_valid_move() first
 def make_move(board, player):
