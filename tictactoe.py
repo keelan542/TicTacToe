@@ -1,5 +1,3 @@
-from colorama import Fore, Back, Style
-
 # Returns an empty board containing only single spaces at start of game
 def new_board():
 	return [' ' for i in range(9)]
@@ -70,9 +68,9 @@ def is_board_full(board):
 def play_again():
   play = input("Do you want to play again (y/n) ? ")
   if play == 'y':
-    return True
+    return new_board()
   else:
-    return False
+    return None
 
 # Start of main program
 board = new_board()
@@ -97,21 +95,21 @@ while True:
 
   if is_winner(board) != None:
     print("{} has won the game!".format(player))
-    if play_again() == False:
+    board = play_again()
+    if board == None:
       break
     else:
       print()
-      board = new_board()
       render(board)
 
   if is_board_full(board):
     print("The game has ended in a draw!")
-    if play_again() == False:
+    board = play_again()
+    if board == None:
       break
     else:
       print()
-      board = new_board()
-      render()
+      render(board)
 
   match player:
     case 'X':
