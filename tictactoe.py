@@ -36,24 +36,24 @@ def is_valid_move(board, move):
   else:
     return False
 
-# Checks if there is winner, following the previous move
+# Checks if there is winner, based on current state of board
 def is_winner(board):
-  for i in range(0, 7, 3):
-    if board[i] == board[i+1] == board[i+2] == 'X':
-      return 'X'
-    elif board[i] == board[i+1] == board[i+2] == 'O':
-      return 'O'
+  for i in range(0, 7):
+    # Check for a horizontal win
+    if i % 3 == 0 and all(x == board[i] and x != ' ' for x in board[i:i+3]):
+      return board[i]
 
-  for i in range(3):
-    if board[i] == board[i+3] == board[i+6] == 'X':
-      return 'X'
-    elif board[i] == board[i+3] == board[i+6] == 'O':
-      return 'O'
+    # Check for a vertical win
+    if i < 3 and all(x == board[i] and x != ' ' for x in board[i:i+7:3]):
+      return board[i]
 
-  if board[0] == board[4] == board[8] == 'X' or board[2] == board[4] == board[6] == 'X':
-    return 'X'
-  elif board[0] == board[4] == board[8] == 'O' or board[2] == board[4] == board[6] == 'Y':
-    return 'O'
+    # Check for first possible diagonal win
+    if i == 0 and all(x == board[i] and x != ' ' for x in board[i::4]):
+      return board[i]
+
+    # Check for second possible diagonal win
+    if i == 2 and all(x == board[i] and x != ' ' for x in board[2:7:2]):
+      return board[i]
 
   return None
 
