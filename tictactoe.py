@@ -72,11 +72,11 @@ def play_again():
   else:
     return None
 
-# Start of main program
+# Create new empty board and set player
 board = new_board()
 player = 'X'
 
-# Welcome message
+# Welcome message and instructions on how to play
 print("Welcome to TicTacToe")
 print("Below you will see the game board")
 print("In order to make a valid move, you must enter an integer from 1-9")
