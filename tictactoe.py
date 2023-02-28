@@ -99,11 +99,19 @@ while True:
     print("{} has won the game!".format(player))
     if play_again() == False:
       break
+    else:
+      print()
+      board = new_board()
+      render(board)
 
   if is_board_full(board):
     print("The game has ended in a draw!")
     if play_again() == False:
       break
+    else:
+      print()
+      board = new_board()
+      render()
 
   match player:
     case 'X':
