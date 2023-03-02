@@ -4,9 +4,9 @@ def new_board():
 
 # Renders the board based on what moves have been made
 def render(board):
-  print('\n   1   2   3')
+  print('   1   2   3')
   print(' +-----------+')
-  print('1| {} | {} | {} |\n -------------\n2| {} | {} | {} |\n -------------\n3| {} | {} | {} |'.format(*board))
+  print('1| {} | {} | {} |\n +-----------+\n2| {} | {} | {} |\n +-----------+\n3| {} | {} | {} |'.format(*board))
   print(' +-----------+')
 
 # Gets move input from user
@@ -82,7 +82,7 @@ print("Below you will see the game board")
 print("In order to make a valid move, you must enter an integer from 1-9")
 print("Each integer corresponds to a place on the board\n")
 render([1, 2, 3, 4, 5, 6, 7, 8, 9])
-print("\nTHE GAME HAS NOW STARTED!")
+print("\nTHE GAME HAS NOW STARTED!\n")
 
 # Render empty board
 render(board)
